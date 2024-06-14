@@ -7,16 +7,10 @@ def checker(num1, num2):
 		print('The result is', num_1 * num_2)
 	else:
 		print('The result is', num_1 + num_2)
-
-print('Enter your first number: ')
-num_1 = input()
-print('Enter your second number: ')
-num_2 = input()
-
 try:
-	num_1 = int(num_1)
-	num_2 = int(num_2)
+	num_1 = int(input('Enter your first number: '))
+	num_2 = int(input('Enter your second number: '))
+	checker(num_1, num_2)
 except:
-	print('Please enter valid integers')
+	print('Please enter valid number.')
 
-checker(num_1, num_2)
