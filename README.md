@@ -4,3 +4,4 @@ Currently a work in progress as of 14/06/24.
 
 Sources used:
 - https://pynative.com/python-basic-exercise-for-beginners/
+- https://exercism.org/tracks/python/exercises/tournament/
