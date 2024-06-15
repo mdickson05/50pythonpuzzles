@@ -92,6 +92,6 @@ for fixture in fixtures:
 			home_team.lose()
 			away_team.win()
 
-teams_list.sort(key=lambda x: x.points, reverse=True)
+teams_list.sort(key=lambda x: (x.points, x.name), reverse=True)
 print_table(teams_list)
 	
