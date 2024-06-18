@@ -66,22 +66,20 @@ def check_team_list(team_name):
 			result = team
 	return result;
 
+def get_team(team_name, teams_list):
+    team = check_team_list(team_name)
+    if team == None:
+        team = Team(team_name)
+        teams_list.append(team)
+    return team;
+
 teams_list = []
 fixtures = parse_input()
 for fixture in fixtures:
 	home_team_name = fixture[0]
-	home_team = check_team_list(home_team_name)
-	
+	home_team = get_team(home_team_name, teams_list)	
 	away_team_name = fixture[1]
-	away_team = check_team_list(away_team_name)
-
-	if home_team == None:
-		home_team = Team(home_team_name)
-		teams_list.append(home_team)
-	if away_team == None:
-		away_team = Team(away_team_name)
-		teams_list.append(away_team)
-
+	away_team = get_team(away_team_name, teams_list)
 	result = fixture[2]
 	match result:
 		case "win":
@@ -94,6 +92,6 @@ for fixture in fixtures:
 			home_team.lose()
 			away_team.win()
 
-teams_list.sort(key=lambda x: x.points, reverse=True)
+teams_list.sort(key=lambda x: (x.points, x.name), reverse=True)
 print_table(teams_list)
 	
